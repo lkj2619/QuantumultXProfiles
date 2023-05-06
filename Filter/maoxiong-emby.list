@@ -1,0 +1,15 @@
+# 猫熊emby
+DOMAIN-SUFFIX,embyclub.net,Emby
+DOMAIN-SUFFIX,embyclub.com,Emby
+DOMAIN-SUFFIX,embyclub.org,Emby
+DOMAIN-SUFFIX,embyclub.media,Emby
+DOMAIN-SUFFIX,猫熊.club,Emby
+DOMAIN-SUFFIX,embyclub.maoxiong.cloud,Emby
+DOMAIN-SUFFIX,maoxiong.cloud,Emby
+DOMAIN-SUFFIX,embyclub2.maoxiong.cloud,Emby
+DOMAIN-SUFFIX,haodream.org,Emby
+DOMAIN-KEYWORD,emby,Emby
+DOMAIN-KEYWORD,pornemby,Emby
+DOMAIN-SUFFIX,xn--2vxr8a.club,Emby
+DOMAIN-SUFFIX,pornemby.maoxiong.cloud,Emby
+IP-CIDR,142.54.186.202/16,Emby,no-resolve
