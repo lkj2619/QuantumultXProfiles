@@ -13,7 +13,7 @@ const ipRegex = /ip=([^;]+);/;
 const expireInRegex = /expire_in=(\d+);/;
 
 const reqHeaderCookie = $request.headers["Cookie"];
-if (reqHeaderCookie == undefined || reqHeaderCookie == null) {
+if (typeof(reqHeaderCookie) == "undefined" || reqHeaderCookie === null) {
     $notify("猫熊机场", "保存cookie失败", "请求中没有Cookie");
     $done();
 }
