@@ -6,11 +6,11 @@
 hostname = mxwljsq.top
 */
 
-const uidRegex = /uid=(\d+);/;
-const emailRegex = /email=([^;]+);/;
-const keyRegex = /key=([^;]+);/;
-const ipRegex = /ip=([^;]+);/;
-const expireInRegex = /expire_in=(\d+);/;
+// const uidRegex = /uid=(\d+);/;
+// const emailRegex = /email=([^;]+);/;
+// const keyRegex = /key=([^;]+);/;
+// const ipRegex = /ip=([^;]+);/;
+// const expireInRegex = /expire_in=(\d+);/;
 
 const reqHeaderCookie = $request.headers["Cookie"];
 if (typeof(reqHeaderCookie) == "undefined" || reqHeaderCookie === null) {
@@ -18,13 +18,16 @@ if (typeof(reqHeaderCookie) == "undefined" || reqHeaderCookie === null) {
     $done();
 }
 
-const uidParam = reqHeaderCookie.match(uidRegex)[0];
-const emailParam = reqHeaderCookie.match(emailRegex)[0];
-const keyParam = reqHeaderCookie.match(keyRegex)[0];
-const ipParam = reqHeaderCookie.match(ipRegex)[0];
-const expireInParam = reqHeaderCookie.match(expireInRegex)[0];
+const cookieObj = extractParamsFromCookie(reqHeaderCookie);
+const cookieVal = cookieObj.uid + cookieObj.email + cookieObj.key + cookieObj.ip + cookieObj.expire_in;
 
-const cookieVal = uidParam + emailParam + keyParam + ipParam + expireInParam;
+// const uidParam = reqHeaderCookie.match(uidRegex)[0];
+// const emailParam = reqHeaderCookie.match(emailRegex)[0];
+// const keyParam = reqHeaderCookie.match(keyRegex)[0];
+// const ipParam = reqHeaderCookie.match(ipRegex)[0];
+// const expireInParam = reqHeaderCookie.match(expireInRegex)[0];
+
+// const cookieVal = uidParam + emailParam + keyParam + ipParam + expireInParam;
 
 const expireTimestampInSec = expireInParam.substring(10, expireInParam.length - 1);
 const uid = uidParam.substring(4, uidParam.length - 1);
@@ -74,3 +77,18 @@ function printExpireDate(timestampInSec) {
 function zeroPadding(num) {
     return num < 10 ? "0" + num : num;
 }
+
+function extractParamsFromCookie(cookieString) {
+    const regex = /(\b(uid|email|key|ip|expire_in)\b)=([^;]*)/g;
+    const matches = [...cookieString.matchAll(regex)];
+  
+    const result = {};
+    matches.forEach(match => {
+      const key = match[2];
+      const value = match[3];
+      result[key] = value;
+    });
+
+    return result;
+}
+  
