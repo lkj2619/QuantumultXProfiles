@@ -13,7 +13,7 @@ hostname = mxwljsq.top
 // const expireInRegex = /expire_in=(\d+);/;
 
 const reqHeaderCookie = $request.headers["Cookie"];
-if (typeof(reqHeaderCookie) == "undefined" || reqHeaderCookie === null) {
+if (typeof (reqHeaderCookie) == "undefined" || reqHeaderCookie === null) {
     $notify("猫熊机场", "保存cookie失败", "请求中没有Cookie");
     $done();
 }
@@ -81,14 +81,13 @@ function zeroPadding(num) {
 function extractParamsFromCookie(cookieString) {
     const regex = /(\b(uid|email|key|ip|expire_in)\b)=([^;]*)/g;
     const matches = [...cookieString.matchAll(regex)];
-  
+
     const result = {};
     matches.forEach(match => {
-      const key = match[2];
-      const value = match[3];
-      result[key] = value;
+        const key = match[2];
+        const value = match[3];
+        result[key] = value;
     });
 
     return result;
 }
-  
