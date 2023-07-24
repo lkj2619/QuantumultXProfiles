@@ -12,6 +12,8 @@ if (typeof (reqHeaderCookie) == "undefined" || reqHeaderCookie === null) {
     $done();
 }
 
+$notify("猫熊机场", "cookie", reqHeaderCookie);
+
 const cookieObj = extractParamsFromCookie(reqHeaderCookie);
 const uid = cookieObj.uid;
 const email = cookieObj.email;
