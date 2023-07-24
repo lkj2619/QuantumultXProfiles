@@ -19,11 +19,14 @@ const key = cookieObj.key;
 const ip = cookieObj.ip;
 const expireIn = cookieObj.expire_in;
 
-const cookieVal = uid + ";" + email + ";" + key + ";" + ip + ";" + expireIn + ";";
+const cookieVal = "uid=" + uid + ";" +
+    "email=" + email + ";" +
+    "key=" + key + ";" +
+    "ip=" + ip + ";" +
+    "expire_in" + expireIn + ";";
 
 const cookieName = "maoxiong-cookie-" + uid;
 const historyCookie = $prefs.valueForKey(cookieName);
-
 if (typeof (historyCookie) == "undefined" || historyCookie === null) {
     const save = $prefs.setValueForKey(cookieVal, cookieName);
     if (!save) {

@@ -1,3 +1,11 @@
+/*
+[rewrite_local]
+^https?:\/\/mxwljsq\.top\/user\/checkin url script-response-body maoxiong-cookie.js
+
+[mitm]
+hostname = mxwljsq.top
+*/
+
 const reqHeaderCookie = $request.headers["Cookie"];
 if (typeof (reqHeaderCookie) == "undefined" || reqHeaderCookie === null) {
     $notify("猫熊机场", "保存cookie失败", "请求中没有Cookie");
@@ -11,7 +19,39 @@ const key = cookieObj.key;
 const ip = cookieObj.ip;
 const expireIn = cookieObj.expire_in;
 
-$notify("猫熊机场", "检测到Cookie过期时间", printExpireDate(expireIn));
+const cookieVal = "uid=" + uid + ";" +
+    "email=" + email + ";" +
+    "key=" + key + ";" +
+    "ip=" + ip + ";" +
+    "expire_in" + expireIn + ";";
+
+const cookieName = "maoxiong-cookie-" + uid;
+const historyCookie = $prefs.valueForKey(cookieName);
+if (typeof (historyCookie) == "undefined" || historyCookie === null) {
+    const save = $prefs.setValueForKey(cookieVal, cookieName);
+    if (!save) {
+        $notify("猫熊机场", "保存cookie失败", "");
+    } else {
+        $notify("猫熊机场", "保存cookie成功", printExpireDate(expireIn));
+    }
+    $done();
+}
+
+if (historyCookie != cookieVal) {
+    const historyCookieexpireIn = extractParamsFromCookie(historyCookie).expire_in;
+    if (historyCookieexpireIn > expireIn) {
+        // 已缓存的cookie过期时间比当前cookie晚，无需更新cookie缓存
+        $done();
+    }
+    const save = $prefs.setValueForKey(cookieVal, cookieName);
+    if (!save) {
+        $notify("猫熊机场", "更新cookie失败", "");
+    } else {
+        $notify("猫熊机场", "更新cookie成功", printExpireDate(expireIn));
+    }
+    $done();
+}
+
 $done();
 
 function printExpireDate(timestampInSec) {
