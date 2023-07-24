@@ -19,8 +19,6 @@ const key = cookieObj.key;
 const ip = cookieObj.ip;
 const expireIn = cookieObj.expire_in;
 
-$notify("猫熊机场", "检测到Cookie过期时间", printExpireDate(expireIn));
-
 const cookieVal = uid + ";" + email + ";" + key + ";" + ip + ";" + expireIn + ";";
 
 const cookieName = "maoxiong-cookie-" + uid;
