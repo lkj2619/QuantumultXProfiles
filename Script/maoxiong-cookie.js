@@ -23,7 +23,7 @@ const cookieVal = "uid=" + uid + ";" +
     "email=" + email + ";" +
     "key=" + key + ";" +
     "ip=" + ip + ";" +
-    "expire_in" + expireIn + ";";
+    "expire_in=" + expireIn + ";";
 
 const cookieName = "maoxiong-cookie-" + uid;
 const historyCookie = $prefs.valueForKey(cookieName);
