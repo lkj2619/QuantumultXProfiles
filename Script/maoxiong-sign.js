@@ -6,6 +6,8 @@ if (cookie == undefined) {
     $done();
 }
 
+$notify("猫熊机场", "Cookie", cookie);
+
 const url = "https://mxwljsq.top/user/checkin";
 const method = "POST";
 const headers = { "Cookie": cookie };
