@@ -18,7 +18,7 @@ const request = {
     url: url,
     method: method,
     headers: headers,
-    body: body
+    body: JSON.stringify(body)
 };
 
 $task.fetch(request).then(response => {
