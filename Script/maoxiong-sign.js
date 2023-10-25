@@ -6,7 +6,7 @@ if (cookie == undefined) {
     $done();
 }
 
-const url = "https://mxwljsq.top/user/checkin";
+const url = "https://mxwljsq.com/user/checkin";
 const method = "POST";
 const headers = { "Cookie": cookie };
 
