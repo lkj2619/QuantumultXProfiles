@@ -40,10 +40,13 @@ if (typeof (historyCookie) == "undefined" || historyCookie === null) {
     $done();
 }
 
+console.log(historyCookie);
+
 if (historyCookie != cookieVal) {
     console.log("历史cookie不一致");
     const historyCookieexpireIn = extractParamsFromCookie(historyCookie).expire_in;
     if (historyCookieexpireIn > expireIn) {
+        console.log("已缓存的cookie过期时间比当前cookie晚，无需更新cookie缓存");
         // 已缓存的cookie过期时间比当前cookie晚，无需更新cookie缓存
         $done();
     }
