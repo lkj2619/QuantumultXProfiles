@@ -25,9 +25,12 @@ const cookieVal = "uid=" + uid + ";" +
     "ip=" + ip + ";" +
     "expire_in=" + expireIn + ";";
 
+console.log(cookieVal);
+
 const cookieName = "maoxiong-cookie-" + uid;
 const historyCookie = $prefs.valueForKey(cookieName);
 if (typeof (historyCookie) == "undefined" || historyCookie === null) {
+    console.log("历史cookie不存在");
     const save = $prefs.setValueForKey(cookieVal, cookieName);
     if (!save) {
         $notify("猫熊机场", "保存cookie失败", "");
@@ -38,6 +41,7 @@ if (typeof (historyCookie) == "undefined" || historyCookie === null) {
 }
 
 if (historyCookie != cookieVal) {
+    console.log("历史cookie不一致");
     const historyCookieexpireIn = extractParamsFromCookie(historyCookie).expire_in;
     if (historyCookieexpireIn > expireIn) {
         // 已缓存的cookie过期时间比当前cookie晚，无需更新cookie缓存
