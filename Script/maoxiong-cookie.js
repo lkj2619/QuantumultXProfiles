@@ -1,9 +1,9 @@
 /*
 [rewrite_local]
-^https?:\/\/mxwljsq\.xyz\/user\/checkin url script-response-body maoxiong-cookie.js
+^https?:\/\/mxwljsq\.com\/user\/checkin url script-response-body maoxiong-cookie.js
 
 [mitm]
-hostname = mxwljsq.xyz
+hostname = mxwljsq.com
 */
 
 const reqHeaderCookie = $request.headers["Cookie"];
