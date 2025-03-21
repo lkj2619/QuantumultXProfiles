@@ -22,7 +22,8 @@ const expireIn = cookieObj.expire_in;
 const cookieVal = "uid=" + uid + ";" +
     "email=" + email + ";" +
     "key=" + key + ";" +
-    "ip=" + ip + ";" +
+    // "ip=" + ip + ";" +
+    "cnxad_lunbo=yes;" +
     "expire_in=" + expireIn + ";";
 
 console.log(cookieVal);
