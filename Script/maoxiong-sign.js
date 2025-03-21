@@ -20,7 +20,7 @@ $task.fetch(request).then(response => {
     // cookie失效会自动跳转到登录页面
     const contentType = response.headers["Content-Type"];
     if (contentType != undefined && contentType.indexOf("text/html") != -1) {
-        $notify("猫熊机场", "签到失败", "cookie失效，请重新获取");
+        $notify("猫熊机场", "签到失败", response.body);
         $done();
     }
 
