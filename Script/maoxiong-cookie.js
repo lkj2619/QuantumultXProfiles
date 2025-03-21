@@ -16,7 +16,7 @@ const cookieObj = extractParamsFromCookie(reqHeaderCookie);
 const uid = cookieObj.uid;
 const email = cookieObj.email;
 const key = cookieObj.key;
-const ip = cookieObj.ip;
+// const ip = cookieObj.ip;
 const expireIn = cookieObj.expire_in;
 
 const cookieVal = "uid=" + uid + ";" +
