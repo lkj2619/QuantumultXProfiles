@@ -16,7 +16,7 @@ const save = $prefs.setValueForKey(reqHeaderCookie, "maoxiong-cookie");
 if (!save) {
     $notify("猫熊机场", "更新cookie失败", "");
 } else {
-    $notify("猫熊机场", "更新cookie成功", printExpireDate(expireIn));
+    $notify("猫熊机场", "更新cookie成功", "");
 }
 $done();
 
