@@ -1,5 +1,6 @@
 const uid = "109294";
-const cookieName = "maoxiong-cookie-" + uid;
+// const cookieName = "maoxiong-cookie-" + uid;
+const cookieName = "maoxiong-cookie";
 const cookie = $prefs.valueForKey(cookieName);
 if (cookie == undefined) {
     $notify("猫熊机场", "签到失败", "获取不到cookie，请先手动签到一次");
@@ -8,7 +9,7 @@ if (cookie == undefined) {
 
 const url = "https://mxwljsq.com/user/checkin";
 const method = "POST";
-const headers = { "Cookie": cookie };
+const headers = { "Cookie": cookie, "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" };
 
 const request = {
     url: url,
