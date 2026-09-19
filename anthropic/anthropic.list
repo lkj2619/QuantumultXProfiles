@@ -1,16 +1,49 @@
-HOST-SUFFIX, anthropic.com, anthropic
-HOST-SUFFIX, clau.de, anthropic
-HOST-SUFFIX, claude.ai, anthropic
-HOST-SUFFIX, claude.com, anthropic
-HOST-SUFFIX, claudemcpclient.com, anthropic
-HOST-SUFFIX, claudeusercontent.com, anthropic
-HOST-SUFFIX, servd-anthropic-website.b-cdn.net, anthropic
-HOST-SUFFIX, sentry.io, anthropic
-HOST-SUFFIX, statsigapi.net, anthropic
-HOST-SUFFIX, cdn.anthropic.com, anthropic
-HOST-SUFFIX, mcp.anthropic.com, anthropic
-HOST-SUFFIX, console.anthropic.com, anthropic
-HOST-SUFFIX, workbench.anthropic.com, anthropic
-HOST-SUFFIX, anthropic.auth0.com, anthropic
-HOST-SUFFIX, anthropic-com.ghost.io, anthropic
-HOST-SUFFIX, anthropic.com.cdn.cloudflare.net, anthropic
+# NAME: Anthropic
+# SOURCE: https://raw.githubusercontent.com/lkj2619/ClashProfiles/refs/heads/main/Anthropic.yaml
+# UPDATED: 2026-09-19
+# HOST: 6
+# HOST-SUFFIX: 11
+# HOST-KEYWORD: 3
+# IP-CIDR: 1
+# IP6-CIDR: 1
+# IP-ASN: 1
+# TOTAL: 23
+#
+# Quantumult X does not support Mihomo's GEOSITE rule type. The upstream
+# GEOSITE,anthropic entry is covered by the explicit Anthropic domain rules;
+# GEOSITE,category-ntp is therefore not included.
+
+# Core domains
+HOST-SUFFIX,anthropic.com
+HOST-SUFFIX,claude.ai
+HOST-SUFFIX,claude.com
+HOST-SUFFIX,clau.de
+HOST-SUFFIX,claudemcpclient.com
+HOST-SUFFIX,claudemcpcontent.com
+HOST-SUFFIX,claudeusercontent.com
+
+# CDN and infrastructure
+HOST,servd-anthropic-website.b-cdn.net
+HOST,anthropic.com.cdn.cloudflare.net
+
+# Authentication and content
+HOST,anthropic.auth0.com
+HOST,anthropic-com.ghost.io
+
+# Monitoring, telemetry, and anti-fraud
+HOST-SUFFIX,sentry.io
+HOST-SUFFIX,statsigapi.net
+HOST,browser-intake-us5-datadoghq.com
+HOST-KEYWORD,datadog
+HOST-KEYWORD,sentry
+HOST-KEYWORD,sift
+
+# Customer support and third-party widgets
+HOST-SUFFIX,intercom.io
+HOST-SUFFIX,intercomcdn.com
+HOST,cdn.usefathom.com
+
+# Anthropic network fallbacks
+IP-CIDR,160.79.104.0/21,no-resolve
+IP6-CIDR,2607:6bc0::/32,no-resolve
+IP-ASN,399358,no-resolve
